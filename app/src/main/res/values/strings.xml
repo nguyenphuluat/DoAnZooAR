@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">ZooAr</string>
+    <string name="fail_connect">Connection error, please check the Internet</string>
+    <string name="wrong_account">Wrong username or password</string>
+    <string name="empty">Fields cannot be empty</string>
+    <string name="access">Registration successful</string>
+    <string name="duplicate">Duplicate</string>
+    <string name="load">Loading...</string>
+    <string name="sort_view">Sort by view</string>
+    <string name="sort_enjoy">Sort by enjoy</string>
+    <string name="sort_time">Sort by time</string>
+    <string name="changpass">Change Password</string>
+    <string name="changvatar">Change Avatar</string>
+    <string name="manageuser">User Manager</string>
+    <string name="modelmanager">Model Manager</string>
+    <string name="done">Done</string>
+    <string name="post">Post</string>
+    <string name="password">Password</string>
+    <string name="is">is :</string>
+    <string name="wrongemail">Please check your email or username</string>
+    <string name="checkemail">Your password have been send email. Please check your email</string>
+    <string name="wrong">ERROR</string>
+    <string name="sceneform">SCENEFORM</string>
+    <string name="control">CONTROL</string>
+    <string name="cloud">CLOUD ANCHOR</string>
+    <string name="option">OPTION</string>
+    <string name="loguot">LogOut</string>
+    <string name="wellcome">WELLCOME
+        ZOOAR</string>
+</resources>
