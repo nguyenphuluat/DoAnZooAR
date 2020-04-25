@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 16, 2020 lúc 06:04 PM
+-- Thời gian đã tạo: Th4 25, 2020 lúc 03:22 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.1
 
@@ -21,6 +21,26 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `zooar`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `level`
+--
+
+CREATE TABLE `level` (
+  `idLevel` int(11) UNSIGNED NOT NULL,
+  `nameLevel` varchar(50) NOT NULL DEFAULT 'Unknow',
+  `role` int(11) UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `level`
+--
+
+INSERT INTO `level` (`idLevel`, `nameLevel`, `role`) VALUES
+(1, 'User', 0),
+(2, 'Admin', 1);
 
 -- --------------------------------------------------------
 
@@ -46,7 +66,7 @@ CREATE TABLE `model` (
 --
 
 INSERT INTO `model` (`id`, `name`, `urlImage`, `urlModel`, `urlaudio`, `infomation`, `status`, `level`, `view`, `run`) VALUES
-(1, 'Eagle', 'php\\image\\eagle.jpg', 'model\\Eagle.sfb', 'audio\\eagle.mp3', 'Đại bàng là một loài chim săn mồi cỡ lớn thuộc bộ Ưng, họ Accipitridae. Chúng sinh sống trên mọi nơi có núi cao và rừng nguyên sinh còn chưa bị con người chặt phá như bờ biển Úc, Indonesia, Phi châu... nhưng chủ yếu là Lục địa Á-Âu với khoảng 60 loài, còn lại 11 loài khác tìm thấy tại các lục địa còn lại bao gồm 2 loài ở Lục địa Bắc Mỹ,[1] 9 loài ở Trung và Nam Mỹ và 3 loài ở Úc.\r\n\r\nMô tả\r\nBài chi tiết: Kích thước các loài đại bàng\r\nĐại bàng có nhiều đặc điểm nhận dạng khác nhau giữa các loài đại bàng với nhau nhưng nổi bật là màu lông và kích thước từng loài. Loài đại bàng lớn nhất có chiều dài cơ thể hơn 1 m và nặng 7 kg. Loài bé nhất chỉ dài có 0,4 m và nặng khoảng hơn 0,5 kg. Chim mái thường lớn hơn chim trống và nặng hơn chim trống khoảng 25%.\r\n\r\nTheo một số tài liệu chưa được chứng minh[2] thì đại bàng có sải cánh hơn 3 m và nặng tới 30 kg. Thực tế thì đại bàng nhỏ hơn thế. Sải cánh của chúng chỉ dài từ 1,5 m cho đến 2 m.\r\n\r\nĐại bàng thường làm tổ trên núi hoặc cây cao. Tổ của chúng rất lớn và mỗi năm chúng lại tha về tổ nhiều cành cây mới để làm cho tổ kiên cố hơn trước. Tổ là nơi chim cái đẻ trứng. Mỗi kì sinh nở thì chim cái sinh 2 trứng. Do chim bố mẹ chỉ có khả năng nuôi một chim non nên thường sẽ có cuộc quyết đấu giữa hai chim con. Con nào thắng sẽ được nuôi cho đến khi trưởng thành.\r\n\r\nnguồn: https://vi.wikipedia.org/wiki/%C4%90%E1%BA%A1i_b%C3%A0ng', 1, 1, 10, b'1'),
+(1, 'Eagle', 'php\\image\\eagle.jpg', 'model\\Eagle.sfb', 'audio\\eagle.mp3', 'Đại bàng là một loài chim săn mồi cỡ lớn thuộc bộ Ưng, họ Accipitridae. Chúng sinh sống trên mọi nơi có núi cao và rừng nguyên sinh còn chưa bị con người chặt phá như bờ biển Úc, Indonesia, Phi châu... nhưng chủ yếu là Lục địa Á-Âu với khoảng 60 loài, còn lại 11 loài khác tìm thấy tại các lục địa còn lại bao gồm 2 loài ở Lục địa Bắc Mỹ,[1] 9 loài ở Trung và Nam Mỹ và 3 loài ở Úc.\r\n\r\nMô tả\r\nBài chi tiết: Kích thước các loài đại bàng\r\nĐại bàng có nhiều đặc điểm nhận dạng khác nhau giữa các loài đại bàng với nhau nhưng nổi bật là màu lông và kích thước từng loài. Loài đại bàng lớn nhất có chiều dài cơ thể hơn 1 m và nặng 7 kg. Loài bé nhất chỉ dài có 0,4 m và nặng khoảng hơn 0,5 kg. Chim mái thường lớn hơn chim trống và nặng hơn chim trống khoảng 25%.\r\n\r\nTheo một số tài liệu chưa được chứng minh[2] thì đại bàng có sải cánh hơn 3 m và nặng tới 30 kg. Thực tế thì đại bàng nhỏ hơn thế. Sải cánh của chúng chỉ dài từ 1,5 m cho đến 2 m.\r\n\r\nĐại bàng thường làm tổ trên núi hoặc cây cao. Tổ của chúng rất lớn và mỗi năm chúng lại tha về tổ nhiều cành cây mới để làm cho tổ kiên cố hơn trước. Tổ là nơi chim cái đẻ trứng. Mỗi kì sinh nở thì chim cái sinh 2 trứng. Do chim bố mẹ chỉ có khả năng nuôi một chim non nên thường sẽ có cuộc quyết đấu giữa hai chim con. Con nào thắng sẽ được nuôi cho đến khi trưởng thành.\r\n\r\nnguồn: https://vi.wikipedia.org/wiki/%C4%90%E1%BA%A1i_b%C3%A0ng', 1, 1, 16, b'1'),
 (2, 'Deer', 'php\\image\\deer_blender.jpg', 'model\\deer.sfb', 'audio\\Deer.mp3', 'Họ Hươu nai (một số sách cổ có thể ghi: Hiêu nai) là những loài động vật có vú nhai lại thuộc họ Cervidae. Con đực của hầu hết các loài hươu nai (trừ loài Hydropotes inermis ở Trung Quốc) và tuần lộc cái đều có sừng mọc và rụng theo năm. Nhiều loài hươu nai đang bị đe dọa vì bị săn bắn quá mức.\r\nMôi trường sinh thái\r\nMôi trường sống thích hợp là trảng cỏ, rừng thưa có nhiều cây, cỏ non… Ban ngày nai thường tìm nơi nên tĩnh, kín đáo và an toàn để ngủ, nghỉ… ban đêm tìm kiếm thức ăn và những hoạt động khác…\r\n\r\nNguồn: https://vi.wikipedia.org/wiki/H%E1%BB%8D_H%C6%B0%C6%A1u_nai', 1, 1, 0, b'0'),
 (3, 'Dog', 'php\\image\\dog.jpg', 'model\\dog.sfb', 'audio\\dogs.mp3', 'Chó hay Chó nhà (Danh pháp khoa học: Canis lupus familiaris hoặc Canis familiaris;) từ Hán Việt gọi là \"cẩu\" (狗) hoặc \"khuyển\" (犬), chó con còn được gọi là \"cún\", là một loài động vật thuộc chi Chó (Canis), tạo nên một phần tiến hóa của sói, đồng thời là loài động vật ăn thịt trên cạn có số lượng lớn nhất. Chó và sói xám thuộc nhóm chị em, giống như những loài sói hiện đại đều không có họ hàng gần đến những loài sói được thuần hóa đầu tiên, đồng nghĩa với tổ tiên trực tiếp của chó đã bị tuyệt chủng.\r\n\r\nChó cũng là loài động vật đầu tiên được con người thuần hóa và đã được chọn giống qua hàng thiên niên kỷ với nhiều hành vi, khả năng cảm nhận và đặc tính vật lý. Loài vật này được sử dụng để giữ nhà hoặc làm thú chơi. Răng của chúng dùng để giết mồi, nhai thịt và gặm thịt, thỉnh thoảng để cắn nhau. Chó là loài động vật được nuôi nhiều trên thế giới, có thể trông coi nhà, chăn cừu, dẫn đường, kéo xe, cũng là thực phẩm giàu đạm. Chó giúp con người rất nhiều việc như trông nhà cửa, săn bắt, và được xem như là loài vật trung thành, tình nghĩa nhất với con người. Ngày nay, nhu cầu nuôi chó cảnh đang được phát triển nên những giống chó nhỏ như Fox, Chihuahua hoặc chó thông minh như Collie được nhiều người chơi quan tâm đến.\r\n\r\nNguồn gốc\r\nTổ tiên của loài chó bao gồm cả cáo và chó sói là một loài động vật có vú gần giống như chồn sinh sống ở các hốc cây vào khoảng 400 triệu năm trước. Còn loài chó như chúng ta thấy ngày nay được tiến hóa từ một loài chó nhỏ, màu xám. Vào cuối kỳ Băng hà, cách đây khoảng 40.000 năm, chó sói và người chung sống với nhau thành nhóm săn mồi theo bầy. Chó sói và người thường tranh nhau con mồi, thậm chí còn giết nhau. Nhưng hẳn là chó sói đã bắt đầu tìm bới những mẩu thức ăn thừa do con người bỏ lại. Con người đã thuần hóa chó sói con và qua lai giống nhiều thế hệ, chó sói tiến hóa thành chó nhà ngày nay.\r\n\r\nĐặc điểm\r\nCác giác quan như thị giác, thính giác và khứu giác phát triển mạnh: Chó có mắt to, tai dựng và mũi nhạy, nhờ đó chúng có thể theo dấu con mồi thành công, dù là săn đơn độc hay theo bầy. Tất cả các loài chó trừ chó bụi rậm Nam Mỹ đều có chân dài thích nghi với chạy nhanh khi săn đuổi mồi. Chó là loài \"đi bằng đầu ngón chân\" và có các bàn chân đặc trưng, năm ngón ở chân trước và bốn ngón ở chân sau. Đôi khi có trường hợp chó nhà có năm ngón ở chân sau (móng thứ năm gọi là móng huyền). Chó rừng có đuôi dài, lông dày, thường đồng màu và không có đốm sọc.\r\n\r\nThời gian mang thai trung bình của chó kéo dài khoảng 60 đến 62 ngày, có thể sớm hơn hoặc kéo dài đến 65 ngày. Lúc mới ra đời, chó con không có răng nhưng chỉ sau 4 tuần tuổi đã có thể có 28 chiếc răng. Giống như tất cả các động vật có vú, sau khi con non được sinh ra con mẹ cho con non bú và chăm sóc con non vài tháng, với sự giúp đỡ của các thành viên khác trong gia đình, lúc này con mẹ sẽ trở nên hung dữ. Bộ hàm đầy đủ của loài thú này là 42 chiếc.\r\n\r\n\r\nKhi cơ thể nóng bức, chó thường lè lưỡi thở để hạ nhiệt\r\nMắt chó có đến 3 mí: một mí trên, một mí dưới và mí thứ ba nằm ở giữa, hơi sâu vào phía trong, giúp bảo vệ mắt khỏi bụi bẩn. Chó phân biệt vật thể đầu tiên là dựa vào chuyển động sau đó đến ánh sáng và cuối cùng là hình dạng. Vì thế thị giác của chúng rất kém, chó có thể nhìn thấy màu lam, màu vàng, nhưng không phân biệt được đỏ và lục. Cụ thể thì bên trong mắt của chó có hai loại tế bào hình nón có thể cảm nhận màu sắc, trong khi ở người là ba. Bù lại, chúng có thể quan sát khá rõ trong đêm tối.\r\n\r\nTai của chúng rất thính, chúng có thể nhận biết được 35.000 âm rung chỉ trong một giây. Khứu giác của chúng cũng rất thính như tai. Người ta có thể ngửi thấy mùi thức ăn ở đâu đó trong nhà bếp nhưng chó thì có thể phân biệt từng gia vị trong nồi, thậm chí những chú chó săn còn tìm ra những cây nấm con nằm sâu trong rừng, vì chúng có thể phân biệt gần 220 triệu mùi khác nhau. Với mỗi con chó, sống mũi và nếp nhăn trên mũi sẽ tạo ra những đường vân độc nhất - gọi là vân mũi, là thứ giúp nhận định danh tính của chúng.\r\n\r\nNão chó rất phát triển. Trí tuệ của loài chó có thể tương đương với một đứa trẻ 2 tuổi. Não bộ của chó có tiết ra oxytocin khi tương tác với con người và đồng loại. Điều này cũng giống như phản ứng của não người khi được ôm hoặc hôn. Có thể thấy vào mùa đông lạnh, thỉnh thoảng chó hay lấy đuôi che cái mũi ướt át, đấy là cách chúng giữ ấm cơ thể cho mình. Thân nhiệt của chó là 38°C. Chó có đến 2 lớp lông: lớp bên ngoài dễ thấy, còn lớp lót bên trong giúp cho chúng giữ ấm, khô ráo trong nhũng ngày mưa rét, thậm chí còn có nhiệm vụ \"hạ nhiệt\" trong những ngày oi bức.\r\n\r\nVề sức khỏe, người ta đã tính được rằng: chó 1 năm tuổi tương ứng với người 16 tuổi. Chó 2 tuổi tương ứng với người 24 tuổi, chó 3 năm tuổi - người 30, và sau đó cứ thêm một năm tuổi chó bằng 4 năm tuổi người. Một số thức ăn thông thường của con người và hộ gia đình có thể gây độc cho chó, như Sô-cô-la, hành và tỏi, nho và nho khô, mắc ca, xylitol cũng như nhiều loài thực vật và chất liệu có thể gây ngộ độc khác. Các dấu hiệu ngộ độc có thể là nôn mửa nhiều, ngất hoặc thậm chí tử vong.\r\n\r\nNguồn: https://vi.wikipedia.org/wiki/Ch%C3%B3', 1, 1, 0, b'1'),
 (4, 'Lion', 'php\\image\\lion.jpg', 'model\\lion.sfb', 'audio\\Lion.mp3', 'Sư tử (tên khoa học Panthera leo) là một trong những đại miêu trong họ Mèo và là một loài của chi Báo. Được xếp mức sắp nguy cấp trong thang sách Đỏ IUCN từ năm 1996, các quần thể loài này ở châu Phi đã bị sụt giảm khoảng 43% từ những năm đầu thập niên 1990. Trong văn hóa phương Tây, sư tử còn có biệt danh là Vua các loài thú (King of Beats) hay Vua sư tử (Lion King). Sư tử là lưỡng hình tình dục; con đực lớn hơn con cái với phạm vi trọng lượng điển hình từ 150 đến 250 kg (330 đến 550 lb) đối với con đực và 120 đến 182 kg (265 đến 400 lb) đối với con cái, là loài lớn thứ nhì họ Mèo sau hổ. Đối với sư tử đực thì rất dễ dàng nhận ra được bởi bờm của nó. Sư tử hoang dã hiện sinh sống ở vùng châu Phi hạ Saharan và châu Á (nơi quần thể còn sót lại cư ngụ ở vườn quốc gia Rừng Gir thuộc Ấn Độ), các phân loài sư tử tuyệt chủng từng sống ở Bắc Phi và Đông Nam Á. Cho tới cuối Pleistocene, khoảng 10 000 năm trước, sư tử là động vật có vú có phân bố rộng thứ 2 chỉ sau con người. Khi đó, chúng sống ở hầu khắp châu Phi, ngang qua lục địa Á-Âu từ miền Tây Âu tới Ấn Độ, và châu Mỹ từ Yukon tới Peru. Sư tử là loài sắp nguy cấp, chúng đã được liệt kê là loài dễ bị tổn thương trong sách đỏ IUCN kể từ năm 1996 bởi vì quần thể ở các nước châu Phi đã giảm khoảng 43% kể từ đầu những năm 1990. Nhiều quần thể sư tử không được bảo vệ bên ngoài những khu vực được chỉ định bảo vệ. Mặc dù nguyên nhân của sự suy giảm chưa được làm rõ một cách đầy đủ, nhưng mất môi trường sống và xung đột với con người là những nguyên nhân lớn nhất.\r\n\r\nSư tử sống từ 10–14 năm trong tự nhiên, trong môi trường giam cầm chúng có thể sống hơn 20 năm. Trong tự nhiên, con đực hiếm khi sống hơn 10 năm, do hậu quả của việc đánh nhau liên tục với các đối thủ đồng loại khác. Chúng thường sống ở savan và thảo nguyên chứ không sống trong những khu rừng rậm rạp. Sư tử có tập tính xã hội khác biệt so với các loài họ Mèo còn lại với lối sống theo bầy đàn. Một đàn sư tử gồm con cái và con non của chúng cùng với một số nhỏ con đực trưởng thành. Các nhóm sư tử cái thường đi săn cùng nhau, chủ yếu săn những loài động vật móng guốc lớn. Chúng là loài động vật ăn thịt đầu bảng chủ chốt và chủ yếu ăn thịt sống, mặc dù chúng cũng sẽ ăn xác thối khi có cơ hội. Một số con sư tử đã được biết đến là có thể săn người, mặc dù đây là điều không thường thấy ở chúng.\r\n\r\nLà một trong những biểu tượng động vật được công nhận rộng rãi nhất trong văn hóa loài người, sư tử đã được mô tả rộng rãi trong các tác phẩm điêu khắc và tranh vẽ, trên quốc kỳ, và trong các bộ phim và văn học đương đại. Sư tử đã được nuôi nhốt từ thời Đế quốc La Mã và là một loài chủ chốt được tìm kiếm để triển lãm trong các vườn bách thú trên khắp thế giới kể từ cuối thế kỷ 18. Miêu tả văn hóa của sư tử là nổi bật trong thời kỳ đồ đá cũ; tranh khắc và tranh vẽ từ hang động Lascaux và Chauvet ở Pháp đã có từ 17.000 năm trước, và các mô tả đã xảy ra ở hầu hết các nền văn hóa cổ đại và trung cổ trùng với các phạm vi trước đây và hiện tại của sư tử.\r\n\r\nNguồn: https://vi.wikipedia.org/wiki/S%C6%B0_t%E1%BB%AD', 1, 1, 0, b'1'),
@@ -55,29 +75,84 @@ INSERT INTO `model` (`id`, `name`, `urlImage`, `urlModel`, `urlaudio`, `infomati
 (7, 'Soren', 'php\\image\\Soren.jpg', 'model\\Soren.sfb', 'audio\\owl.mp3', 'Họ Cú mèo (danh pháp hai phần: Strigidae) là một trong hai họ được nhiều người chấp nhận thuộc Bộ Cú, họ kia là Họ Cú lợn. Họ này có khoảng 189 loài trong 24 chi. Các loài cú điển hình này có sự phân bố rộng khắp thế giới, được tìm thấy tại các châu lục trừ châu Nam Cực.\r\n\r\nCác chi\r\nCó gần 200 loài còn tồn tại được đưa vào một số chi:\r\n\r\nChi Megascops: cú mèo Mỹ (screech-owls), khoảng 20 loài\r\nChi Otus: cú mèo; có lẽ cận ngành, khoảng 45 loài\r\nChi Mimizuku - cú mèo lớn hay dù dì Mindanao, 1 loài, được chuyển vào chi Otus\r\nChi Pyrroglaux - cú mèo Palau\r\nChi Psiloscops - cú mèo lửa Bắc Mỹ\r\nChi Gymnoglaux - cú mèo Cuba (Bare-legged Owl hoặc Cuban Screech-owl)\r\nChi Ptilopsis - cú mặt trắng, 2 loài\r\nChi Bubo - dù dì; cận ngành với Nyctaetus, Ketupa và Scotopelia, khoảng 25 loài\r\nChi Strix - hù, khoảng 17 loài\r\nChi Ciccaba - 4 loài hù, được chuyển vào chi Strix\r\nChi Lophostrix - cú mào\r\nChi Jubula - cú bờm\r\nChi Pulsatrix - hù kính (spectacled owls), 3 loài\r\nChi Surnia - cú diều phương bắc (Northern Hawk-Owl), 1 loài\r\n\r\nTawny Owl\r\nChi Glaucidium - cú vọ, khoảng 30-35 loài\r\nChi Xenoglaux - Long-whiskered Owlet, cú ria dài\r\nChi Micrathene - Elf Owl, cú lùn\r\nChi Athene - 4 loài hù/ cú vọ (bao gồm cả các chi Speotyto và Heteroglaux)\r\nChi Aegolius - saw-whet owls, cú vọ, 4 loài\r\nChi Ninox - cú vọ Australasia, hay cú diều, khoảng 20 loài\r\nChi Uroglaux - cú vọ Papua\r\nChi Pseudoscops - cú mèo Jamaica và có thể là Striped Owl thuộc chi Asio\r\nChi Asio - cú lửa, 6-7 loài (tùy thuộc vào việc phân loại Striped Owl vào chi Asio hay Pseudoscops)\r\nChi Nesasio - Fearful Owl (Cú vọ Solomon)\r\nTuyệt chủng gần đây\r\nChi Mascarenotus - cú Mascarene, 3 loài (tuyệt chủng khoảng năm 1850)\r\nChi Sceloglaux - cú cười (tuyệt chủng năm 1914?)\r\nChim tiền sử Đệ Tứ muộn\r\nChi Grallistrix - Stilt-owls, 4 loài\r\nKaua‘i Stilt-owl, Grallistrix auceps\r\nMaui Stilt-owl, Grallistrix erdmani\r\nMoloka‘i Stilt-owl, Grallistrix geleches\r\nO‘ahu Stilt-owl, Grallistrix orion\r\nChi Ornimegalonyx - cú lớn Caribe, 1-2 loài\r\nCú lớn Cuba, Ornimegalonxy oteroi\r\nOrnimegalonyx sp. - có thể là phân loài của O. otero\r\nHóa thạch\r\nMioglaux (Hậu Oligocen? - Tiền Miocen ở Trung Tây châu Âu) - bao gồm \"Bubo\" poirreiri\r\nIntutula (Tiền/Trung Miocen ở Trung Tây châu Âu) - bao gồm \"Strix/Ninox\" brevis\r\nAlasio (Trung Miocen ở Vieux-Collonges, Pháp) - bao gồm \"Strix\" collongensis\r\n\r\nNguồn: https://vi.wikipedia.org/wiki/H%E1%BB%8D_C%C3%BA_m%C3%A8o', 1, 1, 0, b'1');
 INSERT INTO `model` (`id`, `name`, `urlImage`, `urlModel`, `urlaudio`, `infomation`, `status`, `level`, `view`, `run`) VALUES
 (8, 'T_rex', 'php\\image\\T_rex.png', 'model\\t_rex.sfb', 'audio\\T-rex.mp3', 'Tyrannosaurus (/tɪˌrænəˈsɔːrəs, taɪ-/, có nghĩa là thằn lằn bạo chúa, được lấy từ tiếng Hy Lạp \"tyrannos\" (τύραννος) nghĩa là \"bạo chúa\", và \"sauros\" (σαῦρος) nghĩa là \"thằn lằn\"), còn được gọi là Khủng long bạo chúa trong văn hóa đại chúng, là một chi khủng long chân thú sống vào cuối kỷ Phấn Trắng. Chi này chỉ gồm một loài duy nhất là Tyrannosaurus rex (thường rút gọn là T. rex). Chúng sinh sống ở nơi ngày nay là phía Tây của Bắc Mĩ, khi đó là một lục địa đảo, tên là Laramidia. Hóa thạch của Tyrannosaurus được tìm thấy trong các thành hệ địa chất có niên đại tầng Maastricht, khoảng 67-65,5 triệu năm về trước, và là một trong những loài khủng long cuối cùng tồn tại trước sự tuyệt chủng kỷ Creta-phân đại đệ Tam.\r\n\r\nNhư các loài bạo long (Tyrannosauridae) khác, Tyrannosaurus rex là loài ăn thịt đi bằng hai chân, với một hộp sọ lớn và giữ thăng bằng bởi cái đuôi dài, nặng. So với hai chi sau to khỏe, chi trước của Tyrannosaurus thì ngắn nhưng đậc biệt mạnh so với kích thước của nó và có hai ngón có móng vuốt. Mặc dù bị nhiều loài khác vượt qua về kích thước, Tyrannosaurus rex vẫn là bạo long lớn nhất và một trong số những động vật ăn thịt lớn nhất mọi thời đại. Mẫu vật hoàn chỉnh nhất dài 12,3 m (40 ft), cao 4 mét (13 ft) tới hông (13 feet) và nặng 6,8 tấn (7,5 tấn thiếu) . Là động vật ăn thịt lớn nhất trong khu vực của nó, Tyrannosaurus rex là một động vật ăn thịt đầu bảng, săn khủng long mỏ vịt, khủng long mặt sừng, khủng long bọc giáp và có thể cả khủng long chân thằn lằn, mặc dù vài nhà khoa học xem loài này ăn xác thối. Việc Tyrannosaurus ăn thịt hay xác thối là một trong những chủ đề gây tranh cãi nhiều nhất trong giới cổ sinh vật học; tuy nhiên, hiện nay hầu hết đều đồng ý rằng Tyrannosaurus rex là loài săn mồi cơ hội, thực hiện cả ăn thịt và xác thối. Nó một trong số động vật trên cạn có lực cắn lớn nhất.\r\n\r\nHơn 50 mẫu vật Tyrannosaurus rex đã được phát hiện, một vài có bộ xương gần như hoàn chỉnh. Mô mềm và protein đã xuất hiện trong ít nhất một mẫu vật. Thói quen săn mồi, sinh lý học và tốc độ Tyrannosaurus rex là một vài chủ đề tranh cãi. Việc phân loại cũng bị tranh luận, vài nhà khoa học xemTarbosaurus bataar từ châu Á là một loài Tyrannosaurus và số khác vẫn cho rằng Tarbosaurus là một chi riêng. Nhiều chi Tyrannosauridae Bắc Mỹ cũng đồng nghĩa với Tyrannosaurus.\r\n\r\nVì là loài khủng long ăn thịt cỡ rất lớn được phát hiện từ sớm, Tyrannosaurus là một trong những loài khủng long nổi tiếng nhất kể từ thế kỷ 20, và đã được giới thiệu trong nhiều bộ phim, quảng cáo và tem bưu chính, cũng như nhiều loại phương tiện truyền thông khác.\r\n\r\nMô tả hóa thạch\r\nKích thước\r\n\r\nKích cỡ T.rex (màu xanh lam) so sánh với những kẻ khổng lồ khác\r\n\r\nMột mô hình Tyrannosaurus có môi cùng kích thước với ngoài đời ở Ba Lan\r\nTyrannosaurus rex là một trong số các động vật ăn thịt lớn nhất mọi thời đại. Mẫu vật hoàn chỉnh lớn nhất, trưng bày ở bảo tàng lịch sử tự nhiên Field với số hiệu FMNH PR2081 và có biệt danh \"Sue\", dài 12,3 mét (40 ft), và cao 4 mét (13 ft) ngang hông. Ước tính khối lượng có rất nhiều biến đổi, từ nặng hơn 7,2 tấn (7,9 tấn thiếu), tới nhẹ hơn 4,5 tấn (5,0 tấn thiếu), ước tính gần đây nhất với khối lượng từ 5,4 tấn (6,0 tấn thiếu) tới 6,8 tấn (7,5 tấn thiếu). Một nghiên cứu 2011 cho thấy cân nặng tối đa của Sue, Tyrannosaurus lớn nhất, là từ 9,5–18,5 tấn (9,3–18,2 tấn Anh; 10,5–20,4 tấn thiếu), mặc dù các tác giả lưu ý rằng các ước tính nặng hơn hay nhẹ hơn dựa trên các mô hình có sai số lớn và họ \"cho rằng [chúng] quá ốm, quá mập, hay quá bất cân đối\". Packard và đồng nghiệp (2009) cho rằng các ước tính bị thổi phồng; và cân nặng thực của Tyrannosaurus nhỏ hơn so với các ý kiến trước đây. Các ước tính khác kết luận rằng mẫu vật Tyrannosaurus lớn nhất nặng gần hay vượt qua 9 tấn.\r\n\r\nDo số lượng mẫu vật thu hồi tương đối ít và số lượng cá thể rất lớn có mặt tại bất kỳ thời điểm nào khi Tyrannosaurus còn sống, có thể dễ dàng tìm được mẫu vật lớn hơn những mẫu hiện đang được biết đến bao gồm \"Sue\", tuy vậy việc khám phá ra những cá thể lớn hơn này có thể sẽ là không thể do bản chất hóa thạch chưa hoàn chỉnh. Holtz cũng đã gợi ý rằng \"rất hợp lý để nghi ngờ rằng có những cá thể to hơn 10, 15, hoặc thậm chí 20 phần trăm Sue trong bất kỳ quần thể T. rex nào.\"\r\nBộ xương\r\nCổ của Tyrannosaurus rex tạo thành một đường cong hình chữ S tự nhiên giống như của các loài khủng long chân thú khác, nhưng nó ngắn và rất cơ bắp để hỗ trợ cái đầu lớn. Chi trước chỉ có hai ngón vuốt, cùng với một xương đốt bàn tay nhỏ cho thấy sự thoái hóa của một ngón thứ ba. Trái lại, chi sau của loài này là một trong những phần dài nhất theo tỷ lệ kích thước với cơ thể của bất kỳ loài chân thú nào. Đuôi của chúng nặng và dài, đôi khi chứa hơn bốn mươi đốt sống, để cân bằng phần đầu và thân lớn. Để bù lại trọng lượng lớn của chúng, nhiều khúc xương được tiến hóa để trở thành rỗng ở bên trong, giảm trọng lượng của chúng mà không làm giảm đáng kể sức mạnh.\r\n\r\nSọ của một con T. rex (AMNH 5027)\r\nHộp sọ Tyrannosaurus rex lớn nhất được biết đến dài tới 1,52 mét. Một cửa sổ lớn trong hộp sọ giảm trọng lượng và cung cấp thêm diện tích để cơ bắp có thể bám vào, như trong tất cả các loài khủng long chân thú ăn thịt. Nhưng ở khía cạnh khác, hộp sọ của chúng lại khác biệt đáng kể so với các loài ăn thịt không thuộc liên họ Khủng long bạo chúa. Hộp sọ rất rộng ở phía sau nhưng có cái mõm hẹp, cho phép tầm nhìn hai mắt tốt một cách bất thường. Xương sọ lớn và mũi và một số xương khác được hợp nhất lại, ngăn cản sự di chuyển giữa chúng; một số lớn xương cũng có các lỗ không khí nhỏ (chứa các \"tổ ong\" gồm các lỗ hở không khí) mà có thể đã làm cho xương của chúng linh hoạt hơn cũng như giảm nhẹ trọng lượng. Những đặc điểm tăng cường này của hộp sọ là một phần xu hướng của các loài bạo long hướng tới một cú đớp mạnh mẽ, mà dễ dàng vượt qua của tất cả các loài không thuộc tyrannosaurids. Đầu ngoài của hàm trên có hình chữ U (hầu hết các loài ăn thịt không thuộc tyrannosauroid có hàm trên hình chữ V), làm tăng số lượng mô và xương một con tyrannosaur có thể xé ra với một vết cắn, mặc dù nó cũng làm tăng độ căng ở mặt trước răng.\r\n\r\nRăng của Tyrannosaurus rex thể hiện sự khác biệt rõ rệt về hình dạng. Các răng của mảnh trước hàm của hàm trên được đóng gói chặt chẽ, hình chữ D theo mặt cắt ngang, có các chỗ lồi gia cố trên bề mặt phía sau, là răng cửa (lưỡi của chúng giống như lưỡi của cái đục) và cong ngược lại. Mặt cắt hình chữ D, chỗ chóp tăng cường và đường cong ngược làm giảm nguy cơ răng sẽ bị gãy khi Tyrannosaurus cắn hoặc kéo. Những chiếc răng còn lại rất chắc chắn, giống như \"những quả chuối chết người\" hơn là dao găm, có khoảng cách rộng hơn và cũng có các chóp củng cố. Những răng ở hàm trên lớn hơn tất cả nhưng cái ở phía sau hàm dưới. Lớn nhất được tìm thấy cho đến nay được ước tính dài 30,5 cm bao gồm cả gốc răng khi nó còn sống, làm cho nó trở thành chiếc răng lớn nhất của bất kỳ loài khủng long ăn thịt nào đã được tìm thấy.\r\n\r\nDa và lông vũ\r\n\r\nPhục hồi loài T. rex với lông vũ\r\nTrong khi không có bằng chứng trực tiếp về loài Tyrannosaurus rex có lông vũ, nhiều nhà khoa học hiện nay cho rằng T. rex có lông trên ít nhất một phần cơ thể, do sự hiện diện của chúng trong các loài có họ hầng gần. Mark Norell của Bảo tàng Lịch sử Tự nhiên Mỹ tóm tắt sự cân bằng của các nghiên cứu bằng cách nói rằng: \"chúng tôi có nhiều bằng chứng cho thấy T. rex có lông, ít nhất là ở một giai đoạn nào đó trong cuộc đời, như loài Australopithecine giống như Lucy có tóc.\"\r\n\r\nBằng chứng đầu tiên cho lông vũ trong các loài tyrannosauroids xuất phát từ các loài nhỏ như Dilong paradoxus, được khám phá tại Thành hệ Yixian của Trung Quốc, và được báo cáo vào năm 2004. Như với nhiều loài khủng long chân thú khủng long đuôi rỗng khác được phát hiện ở Yixian, bộ xương hóa thạch được bảo quản bằng một lớp cấu trúc sợi thường được công nhận là tiền thân của lông vũ. Bởi vì tất cả các hiện tượng da từ tyrannosauroids được biết đến vào thời điểm đó cho thấy bằng chứng về vảy, các nhà nghiên cứu tìm hiểu về Dilong cho rằng đặc điểm về lông có thể tỉ lệ nghịch so với kích thước cơ thể - con vị thành niên sẽ có lông vũ, sau đó rụng lông và chỉ có vảy khi nó lớn lên và không còn cần bộ lông để giữ ấm. Những khám phá tiếp theo cho thấy rằng ngay cả một số tyrannosauroids lớn cũng có lông vũ bao phủ phần lớn cơ thể của chúng, tạo nên ngờ vực về giả thuyết rằng chúng là một đặc điểm liên quan đến kích thước.\r\n\r\nTrong khi những vết hằn của da từ một mẫu Tyrannosaurus rex có biệt danh là \"Wyrex\" (BHI 6230) được phát hiện ở Montana vào năm 2002,cũng như một số mẫu tyrannosauroid khổng lồ khác, cho thấy ít nhất một vài những vảy khảm nhỏ, Yutyrannus huali (dài tới 9 mét và nặng khoảng 1.400 kg, bao phủ bởi lông vũ trên nhiều phần khác nhau của cơ thể, cho thấy toàn bộ cơ thể của nó được bao phủ bằng lông vũ. Có thể là mức độ và tính chất của lông bao phủ trong các loài tyrannosauroid đã thay đổi theo thời gian để đáp ứng với kích thước cơ thể, khí hậu ấm hơn, hoặc các yếu tố khác. Trong năm 2017, dựa trên các vết hằn da được tìm thấy ở đuôi, háng và cổ của mẫu \"Wyrex\" (BHI 6230) và các tyrannosaurids họ hàng chặt chẽ khác, người ta cho rằng tyrannosaurid thân lớn có vảy và nếu có lông một phần, thì chúng sẽ bị hạn chế đến lưng.\r\n\r\nMột nghiên cứu trong năm 2016 đề xuất rằng khủng long chân thú lớn như Tyrannosaurus có răng bao phủ trong môi như thằn lằn còn sống thay vì răng trần như cá sấu. Điều này dựa trên sự hiện diện của men răng, mà theo nghiên cứu cần phải được giữ nước, một vấn đề không phải đối mặt với động vật thủy sinh như cá sấu hay động vật không răng như chim.\r\n\r\nDựa trên so sánh kết cấu xương của Daspletosaurus với cá sấu còn tồn tại, một nghiên cứu chi tiết trong năm 2017 của Thomas D. Carr và các cộng sự cho thấy rằng tyrannosaur có vảy lớn, bằng phẳng trên mõm của chúng. Ở trung tâm của những vảy này là những mảng nhỏ làm từ keratin. Ở cá sấu, các mảng này bao gồm bó của các tế bào thần kinh cảm giác có thể phát hiện các kích thích cơ học, nhiệt và hóa học. Họ đã đề xuất rằng tyrannosaurs có lẽ cũng có các bó nơ-ron giác quan dưới vảy khuôn mặt của chúng và có thể sử dụng giác quan này để xác định các đối tượng, đo nhiệt độ tổ của chúng và nhẹ nhàng lấy trứng và con non. Mặc dù nghiên cứu đã không thảo luận rõ ràng bằng chứng cho hay chống lại môi mồm, nhiều hãng tin tức lớn coi đó là bằng chứng chống lại các loài tyrannosaur có đôi môi. So sánh với mô da mặt cá sấu và lời giải thích cá nhân của Thomas D. Carr về những phát hiện được trích dẫn là các bằng chứng hỗ trợ cho kết luận rằng tyrannosaur không có môi.\r\n\r\nLịch sử khai quật\r\n\r\nPhục dựng khung xương bởi William D. Matthew vào năm 1905, đây là mẫu phục dựng đầu tiên từng được xuất bản\r\nHenry Fairfield Osborn, chủ tịch của Bảo tàng Lịch sử Tự nhiên Hoa Kỳ, đặt tên Tyrannosaurus rex vào năm 1905. Tên gọi của chi có nguồn gốc từ tiếng Hy Lạp τύραννος (tyrannos, có nghĩa là \"bạo chúa\") và σαῦρος (sauros, có nghĩa là \"thằn lằn\"). Osborn đã sử dụng từ tiếng La tinh rex, có nghĩa là \"vua\", cho tên cụ thể. Do đó, toàn bộ danh pháp hai phần dịch thành \"vua thằn lằn bạo chúa\" hoặc \"khủng long bạo chúa\", nhấn mạnh kích thước to lớn của con vật và nhận thức được sự thống trị của nó so với các loài khác trong thời gian đó.\r\n\r\nNhững phát hiện sớm nhất\r\n\r\nMẫu vật điển hình Dynamosaurus imperiosus\r\nRăng từ những gì bây giờ được cho là của Tyrannosaurus rex đã được tìm thấy vào năm 1874 bởi Arthur Lakes gần Golden, Colorado. Vào đầu những năm 1890, John Bell Hatcher đã thu thập các phần tử postcranial ở miền đông Wyoming. Các hóa thạch được cho là của một loài Ornithomimus lớn (O. grandis) nhưng bây giờ được coi là của Tyrannosaurus rex. Các mảnh xương sống được tìm thấy bởi Edward Drinker Cope ở miền tây Nam Dakota vào năm 1892 và được gán cho loài Manospondylus gigas nhưng giờ cũng đã được công nhận là thuộc về loài Tyrannosaurus rex.\r\n\r\nBarnum Brown, trợ lý giám sát của Bảo tàng Lịch sử Tự nhiên Hoa Kỳ, đã tìm thấy bộ xương đầu tiên của Tyrannosaurus rex ở miền đông Wyoming vào năm 1900. HF Osborn ban đầu đặt tên bộ xương này là Dynamosaurus imperiosus trong một bài báo năm 1905. Brown tìm thấy một bộ xương khác trong thành hệ Hell Creek ở Montana vào năm 1902. Osborn đã sử dụng nguyên mẫu này để mô tả Tyrannosaurus rex trong cùng một bài báo mà D. imperiosus được mô tả. Năm 1906, Osborn nhận ra hai danh pháp này đồng nghĩa, và đóng vai trò là người thay đổi ý kiến đầu tiên bằng cách chọn Tyrannosaurus là tên hợp lệ. Mẫu gốc của Dynamosaurus nằm trong các bộ sưu tập của Bảo tàng Lịch sử Tự nhiên Luân Đôn.\r\n\r\nManospondylus\r\n\r\nTranh vẽ mẫu vật điển hình (AMNH 3982) của loài Manospondylus gigas\r\nMẫu vật hóa thạch đầu tiên được đặt tên có nhiều đặc điểm giống với Tyrannosaurus rex bao gồm hai đốt sống một phần (một trong số đó đã bị mất) do Edward Drinker tìm thấy vào năm 1892. Cope tin rằng chúng thuộc về một loài khủng long \"agathaumid\" (Ceratopsidae), và được đặt tên là Manospondylus gigas, có nghĩa là \"đốt sống xốp khổng lồ\" do nhiều lỗ hở cho các mạch máu ông tìm thấy trong xương. M. gigas sau đó được xác định là phần của một loài khủng long chân thú chứ không phải là một ceratopsid, và HF Osborn công nhận sự giống nhau giữa M. gigas và Tyrannosaurus rex vào đầu năm 1917. Do tính vỡ vụn của xương sống Manospondylus, Osborn đã không coi hai loài này giống nhau.\r\n\r\nVào tháng 6 năm 2000, Viện Black Hills đã xác định vị trí địa phương của M. gigas ở Nam Dakota và khai quật nhiều xương tyrannosaur ở đó. Chúng được đánh giá là đại diện cho phần còn lại của cùng một cá thể, và giống hệt với những cá thể của Tyrannosaurus rex. Theo các quy tắc của Luật quốc tế về danh mục động vật (ICZN), hệ thống chi phối việc đặt tên khoa học của các loài động vật, Manospondylus gigas do đó nên được ưu tiên hơn Tyrannosaurus rex, vì nó được đặt tên trước tiên. Ấn bản thứ tư của ICZN, có hiệu lực từ ngày 1 tháng 1 năm 2000, tuyên bố rằng \"việc sử dụng phổ biến phải được duy trì\" khi \"danh pháp đồng âm hoặc danh pháp đồng nghĩa cao cấp chưa được sử dụng dưới dạng tên hợp lệ sau năm 1899\" và \"danh pháp đồng nghĩa cơ sở hoặc đồng âm đã được sử dụng cho một đơn vị phân loại cụ thể, như tên hợp lệ được giả định của nó, trong ít nhất 25 tác phẩm, được xuất bản bởi ít nhất là 10 tác giả trong 50 năm trước đó...\" Tyrannosaurus rex có thể đủ điều kiện để làm tên hợp lệ dựa theo các điều kiện trên và rất có thể sẽ được coi là một tên được bảo vệ dưới ICZN nếu nó đã từng được công bố chính thức, mà nó chưa được. Manospondylus gigas sau đó có thể được coi là một tên bị lãng quên.\r\n\r\nMẫu vật nổi bật\r\n\r\nMẫu vật Sue, Bảo tàng Lịch sử Tự nhiên Field, Chicago\r\nSue Hendrickson, nhà cổ sinh vật học nghiệp dư, đã khám phá ra bộ xương hóa thạch Tyrannosaurus hoàn chỉnh nhất (khoảng 85%) và bộ xương hóa thạch Tyrannosaurus lớn nhất được biết đến tại thành hệ Hell Creek, Nam Dakota, vào ngày 12 tháng 8 năm 1990. Con Tyrannosaurus, có biệt danh Sue lấy theo tên của cô, là đối tượng của một cuộc chiến pháp lý về quyền sở hữu. Vào năm 1997, vụ này đã được giải quyết với kết quả nghiêng về phía Maurice Williams, chủ khu đất ban đầu. Bộ sưu tập hóa thạch đã được bảo tàng Field mua lại với giá 7,6 triệu USD, khiến nó trở thành bộ xương khủng long đắt nhất cho tới nay. Từ năm 1998 đến năm 1999, các nhà chuẩn bị tại Bảo tàng Lịch sử Tự nhiên Field đã dành hơn 25.000 giờ lao động để lấy từng mảnh đá ra khỏi mỗi xương. Các xương sau đó được vận chuyển đến New Jersey, nơi quy trình gắn kết được thực hiện. Khung lắp ráp hoàn thành sau đó được tháo rời, và cùng với xương, vận chuyển trở lại Chicago cho công đoạn cuối cùng. Bộ xương được trưng bày cho công chúng vào ngày 17 tháng 5 năm 2000 tại đại sảnh (Hội trường Stanley) tại Bảo tàng Lịch sử Tự nhiên Field. Một nghiên cứu về xương hóa thạch của mẫu vật này cho thấy Sue đạt kích thước đầy đủ ở tuổi 19 và chết ở tuổi 28, lâu nhất trong bất kỳ các loài tyrannosaur được biết là từng sống. Các suy đoán ban đầu cho rằng Sue có thể đã chết vì một vết cắn ở phía sau đầu không được xác nhận. Mặc dù nghiên cứu tiếp theo về bệnh lý trong bộ xương, không tìm thấy vết cắn nào. Thiệt hại ở mặt sau của hộp sọ có thể là do chà đạp sau khám nghiệm. Suy đoán gần đây cho thấy rằng Sue có thể đã chết vì đói sau khi bị nhiễm ký sinh trùng do ăn thịt có bệnh; kết quả là sẽ gây ra viêm trong cổ họng, cuối cùng khiến Sue bị chết đói vì nó không còn có thể nuốt thức ăn nữa. Giả thuyết này được chứng minh bằng các lỗ trơn trong hộp sọ của nó tương tự như trong các loài chim hiện đại nhiễm cùng một ký sinh trùng.\r\n\r\n\r\nBộ xương của Bucky và mô hình của Stan, tại Bảo tàng thiếu nhi Indianapolis\r\nMột Tyrannosaurus khác, biệt danh Stan, để vinh danh nhà cổ sinh vật học nghiệp dư Stan Sacrison, đã được tìm thấy ở Hell gần Buffalo, Nam Dakota, vào mùa xuân năm 1987. Nó không được thu thập cho đến năm 1992, vì được cho là một bộ xương Triceratops. Stan đầy đủ 63% và được trưng bày tại Viện Nghiên cứu Địa chất Black Hills ở Thành phố Hill, Nam Dakota, sau một chuyến trưng bày vòng quanh thế giới trong năm 1995 và 1996. Con Tyrannosaur này cũng có nhiều bệnh lý về xương, bao gồm xương sườn bị gãy và vết lành, một cái cổ bị gãy (đã tự chữa lành) và một cái lỗ ngoạn mục ở phía sau đầu, cùng kích thước với răng của Tyrannosaurus.\r\n\r\nVào mùa hè năm 2000, Jack Horner đã phát hiện năm bộ xương Tyrannosaurus gần Pháo đài Peck Reservoir ở Montana. Một trong những mẫu vật được cho là bộ xương Tyrannosaurus lớn nhất từng được tìm thấy.\r\n\r\n\r\nMẫu vật \"Sue\", AMNH 5027, \"Stan\", và \"Jane\", so sánh với con người.\r\nNăm 2001, một bộ xương hoàn chỉnh 50% của một con Tyrannosaurus non được phát hiện trong thành hệ Hell Creek ở Montana, bởi một nhóm khảo sát từ Bảo tàng Lịch sử Tự nhiên Burpee của Rockford, Illinois. Được gọi là Jane, phát hiện ban đầu được coi là bộ xương đầu tiên được biết đến của một loài tygannosaurid Nanotyrannus nhưng nghiên cứu mới đây đã tiết lộ rằng nó có nhiều khả năng là một con Tyrannosaurus vị thành niên. Đây là ví dụ về một con khủng long vị thành niên được bảo tồn tốt nhất và hoàn thành nhất hiện nay. Jane đã được kiểm tra bởi một số nhà cổ sinh vật học nổi tiếng như Jack Horner, Pete Larson, Robert Bakker, Greg Erickson vì sự độc đáo của tuổi đời trong mẫu này. Jane hiện đang được trưng bày tại Bảo tàng Lịch sử Tự nhiên Burpee ở Rockford, Illinois.\r\n\r\nNguồn: https://vi.wikipedia.org/wiki/Kh%E1%BB%A7ng_long_b%E1%BA%A1o_ch%C3%BAa', 1, 1, 0, b'1'),
-(9, 'Tutle', 'php\\image\\turtle.jpg', 'model\\turtle.sfb', NULL, 'unknow', 1, 1, 0, b'1'),
-(10, 'Crab', 'php\\image\\Crab.png', 'model\\crab_rig.sfb', NULL, 'unknow', 1, 1, 0, b'0'),
-(11, 'Crocodile', 'php\\image\\crocodie.png', 'model\\Crocodile_Rig.sfb', NULL, 'unknow', 1, 1, 0, b'0'),
-(13, 'Fire Salamander', 'php\\image\\fire-salamander.jpg', 'model\\FireSalamander_Rig.sfb', NULL, 'unknow', 1, 1, 1, b'0'),
-(14, 'Goat', 'php\\image\\goat.png', 'model\\Goat_Rig.sfb', NULL, 'unknow', 1, 1, 0, b'0'),
-(16, 'Ibex', 'php\\image\\ibex.png', 'model\\Ibex_Rig.sfb', NULL, 'unknow', 1, 1, 0, b'0'),
-(17, 'age pig', 'php\\image\\age pig.png', 'model\\iron_age_pig_rig_exp.sfb', NULL, 'unknow', 1, 1, 0, b'0'),
-(18, 'octopus', 'php\\image\\octopus.png', 'model\\octopus_die_anim.sfb', NULL, 'unknow', 1, 1, 0, b'0'),
-(19, 'Perch Fish', 'php\\image\\Perch_Fish.png', 'model\\perch_fish_rig_exp.sfb', NULL, 'unknow', 1, 1, 0, b'0'),
-(20, 'pike fishing', 'php\\image\\pike fishing.jpg', 'model\\pike_rig_exp.sfb', NULL, 'unknow', 1, 1, 0, b'0'),
-(21, 'rat mouse', 'php\\image\\rat_mouse.png', 'model\\rat_rig_exp.sfb', NULL, 'unknow', 1, 1, 0, b'0'),
-(22, 'salmon fish', 'php\\image\\salmon fish.png', 'model\\salmon_rig_exp.sfb', NULL, 'unknow', 1, 1, 0, b'0'),
-(23, 'scorpion', 'php\\image\\scorpion.png', 'model\\Scorpion_Rig.sfb', NULL, 'unknow', 1, 1, 0, b'0'),
-(24, 'Snail', 'php\\image\\Snail.png', 'model\\snail_rig_exp.sfb', NULL, 'unknow', 1, 1, 0, b'0'),
-(25, 'swan geese', 'php\\image\\swan-geese.png', 'model\\swan_goose_rig_exp.sfb', NULL, 'unknow', 1, 1, 0, b'0'),
-(26, 'Viper', 'php\\image\\Viper.png', 'model\\Viper_Rig.sfb', NULL, 'unknow', 1, 1, 0, b'0'),
-(27, 'wild boar', 'php\\image\\wild-boar.png', 'model\\WildBoar_Rig.sfb', NULL, 'unknow', 1, 1, 0, b'0'),
-(28, 'Wild Rabbit', 'php\\image\\WildRabbit.png', 'model\\WildRabbit_Rig.sfb', NULL, 'unknow', 1, 1, 0, b'0'),
-(30, 'butterfly', 'php\\image\\butterfly.png', 'model\\butterfly_fly_cycle_anim_exp.sfb', NULL, 'unknow', 1, 1, 0, b'0');
+(9, 'Tutle', 'php\\image\\turtle.jpg', 'model\\turtle.sfb', NULL, 'unknow', 1, 1, 0, b'1');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `status`
+--
+
+CREATE TABLE `status` (
+  `idStatus` int(11) UNSIGNED NOT NULL,
+  `nameStatus` varchar(50) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `status`
+--
+
+INSERT INTO `status` (`idStatus`, `nameStatus`, `status`) VALUES
+(1, 'Hoạt động', 1),
+(2, 'Ngừng hoạt động', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` text NOT NULL,
+  `urlAvatar` text DEFAULT 'php\\image\\shark.PNG',
+  `email` varchar(50) NOT NULL,
+  `phone` varchar(12) NOT NULL,
+  `status` int(11) UNSIGNED NOT NULL DEFAULT 1,
+  `level` int(11) UNSIGNED NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `username`, `password`, `urlAvatar`, `email`, `phone`, `status`, `level`) VALUES
+(1, 'Nguyễn Phú Luật', 'luat', '1234', 'php\\image\\avatar.jpg', 'ongluatlangvang@gmail.com', '0349993893', 1, 2),
+(28, 'nguyen phu luat', 'luat2', '1234', 'php\\image\\avatar.jpg', 'ongluatlangvang@gmail.com', '1', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `view`
+--
+
+CREATE TABLE `view` (
+  `idView` int(11) UNSIGNED NOT NULL,
+  `idUser` int(11) UNSIGNED NOT NULL,
+  `idModel` int(11) UNSIGNED NOT NULL,
+  `num` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `view`
+--
+
+INSERT INTO `view` (`idView`, `idUser`, `idModel`, `num`) VALUES
+(33, 1, 1, 16),
+(34, 1, 5, 7);
 
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `level`
+--
+ALTER TABLE `level`
+  ADD PRIMARY KEY (`idLevel`);
 
 --
 -- Chỉ mục cho bảng `model`
@@ -86,14 +161,79 @@ ALTER TABLE `model`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `status`
+--
+ALTER TABLE `status`
+  ADD PRIMARY KEY (`idStatus`);
+
+--
+-- Chỉ mục cho bảng `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD KEY `user_level` (`level`),
+  ADD KEY `user_status` (`status`);
+
+--
+-- Chỉ mục cho bảng `view`
+--
+ALTER TABLE `view`
+  ADD PRIMARY KEY (`idView`),
+  ADD KEY `view_user` (`idUser`),
+  ADD KEY `view_model` (`idModel`);
+
+--
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
+
+--
+-- AUTO_INCREMENT cho bảng `level`
+--
+ALTER TABLE `level`
+  MODIFY `idLevel` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `model`
 --
 ALTER TABLE `model`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+
+--
+-- AUTO_INCREMENT cho bảng `status`
+--
+ALTER TABLE `status`
+  MODIFY `idStatus` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT cho bảng `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+
+--
+-- AUTO_INCREMENT cho bảng `view`
+--
+ALTER TABLE `view`
+  MODIFY `idView` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_level` FOREIGN KEY (`level`) REFERENCES `level` (`idLevel`),
+  ADD CONSTRAINT `user_status` FOREIGN KEY (`status`) REFERENCES `status` (`idStatus`);
+
+--
+-- Các ràng buộc cho bảng `view`
+--
+ALTER TABLE `view`
+  ADD CONSTRAINT `view_model` FOREIGN KEY (`idModel`) REFERENCES `model` (`id`),
+  ADD CONSTRAINT `view_user` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
