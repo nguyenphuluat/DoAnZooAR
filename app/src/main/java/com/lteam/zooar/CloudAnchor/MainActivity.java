@@ -184,6 +184,7 @@ public class MainActivity extends AppCompatActivity {
     private void setCloudAnchor(Anchor newAnchor) {
         if (cloudAnchor != null) {
             cloudAnchor.detach();
+            Log.e(TAG, "setCloudAnchor: " );
         }
 
         cloudAnchor = newAnchor;
