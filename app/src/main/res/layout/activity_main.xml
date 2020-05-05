@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MainActivity">
+
+
+    <com.romainpiel.shimmer.ShimmerTextView
+        android:id="@+id/shimmer_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtTen"
+        android:layout_marginTop="83dp"
+        android:gravity="center"
+        android:text="@string/wellcome"
+        android:textColor="#444"
+        android:textSize="50sp" />
+
+    <com.lteam.zooar.Image.CircleImage
+        android:id="@+id/imgAvatar"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        android:elevation="1dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp">
+    </com.lteam.zooar.Image.CircleImage>
+    <TextView
+        android:id="@+id/txtTen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bo_goc_bon_goc_xanh_lam_nhat"
+        android:padding="5dp"
+        android:text="name"
+        android:textSize="25dp"
+        android:textStyle="italic"
+        android:textColor="@android:color/white"
+        android:layout_below="@+id/imgAvatar"
+        android:layout_centerHorizontal="true" />
+
+    <com.nightonke.boommenu.BoomMenuButton
+        android:id="@+id/bmb2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:bmb_draggable="true"
+        app:bmb_normalColor="@android:color/holo_green_light"
+        app:bmb_highlightedColor="@android:color/holo_green_dark"
+        app:bmb_buttonEnum="ham"
+        app:bmb_piecePlaceEnum="piecePlace_ham_4"
+        app:bmb_buttonPlaceEnum="buttonPlace_ham_4"
+        />
+
+    <com.nightonke.boommenu.BoomMenuButton
+        android:id="@+id/bmb3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        app:bmb_draggable="true"
+        app:bmb_normalColor="@android:color/holo_blue_light"
+        app:bmb_highlightedColor="@android:color/holo_blue_bright"
+        app:bmb_buttonEnum="textOutsideCircle"
+        />
+</RelativeLayout>
